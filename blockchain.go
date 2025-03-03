@@ -7,7 +7,7 @@ import (
 	"time"
 )
 
-//lets create a blockchain
+//Adding a new block to the blockchain
 
 type Block struct {
 	Index     int
@@ -22,7 +22,7 @@ type Blockchain struct {
 	Blocks []*Block
 }
 
-// Generate a hash for the block
+// hash for the block
 func (b *Block) GenerateHash() {
 	data := bytes.Join([][]byte{
 		[]byte(fmt.Sprintf("%d", b.Index)),
@@ -34,7 +34,7 @@ func (b *Block) GenerateHash() {
 	b.Hash = hash[:]
 }
 
-// Create a new block
+// new block
 func NewBlock(data string, prevBlock *Block) *Block {
 	block := &Block{
 		Index:     prevBlock.Index + 1,
